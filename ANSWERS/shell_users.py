@@ -3,10 +3,10 @@
 users_by_shell = {}
 with open("../DATA/passwd") as passwd_in:
     for line in passwd_in:
-        (_, _, _, _, _, _, shell) = line.rstrip('\n\r').split(":")
+        *junk, shell = line.rstrip('\n\r').split(":")
         if shell == "":
             shell = "NONE"
-
+        # print("shell:", shell)
         if shell in users_by_shell:
             users_by_shell[shell] = users_by_shell[shell] + 1
         else:
